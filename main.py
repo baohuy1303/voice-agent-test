@@ -60,7 +60,7 @@ def generate_test_cases(agent_description: str) -> list[dict]:
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-5-nano",
         temperature=0.7,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
