@@ -1,7 +1,9 @@
-from main import save_and_print
+from main import save_and_print_pipeline
 from fastapi import FastAPI
 from pydantic import BaseModel
 from main import generate_test_cases as generate_test_cases_main
+from pipeline import graph
+from main import save_and_print
 
 app = FastAPI()
 
@@ -30,3 +32,13 @@ def validate_agent(body: ValidateAgent):
         return {"valid": True, "count": len(capabilities)}
     else:
         return {"valid": False, "count": 0}
+
+@app.post('/run-pipeline')
+def run_pipeline(agent_description: AgentDescription):
+    res = graph.invoke({"agent_description": agent_description.agent_description})
+    save_and_print_pipeline(res['final_cases'], 'test_cases.json')
+    return {
+        "test_cases": res['final_cases'],
+        "issues": res['issues'],
+        "iterations": res['iterations']
+    }

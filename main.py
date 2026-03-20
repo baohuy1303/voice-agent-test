@@ -141,6 +141,18 @@ def save_and_print(test_cases: list[dict], output_file: str = "test_cases.json")
     print(f"\n[OK] Saved {num_of_test_cases} test cases to '{output_file}'", file=sys.stderr)
 
 
+def save_and_print_pipeline(test_cases: list[dict], output_file: str = "test_cases.json") -> None:
+    output = json.dumps(test_cases, indent=2)
+
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write(output)
+
+    print(output)
+    num_of_test_cases = 0
+    for test_case in test_cases:
+        num_of_test_cases += 1
+    print(f"\n[OK] Saved {num_of_test_cases} test cases to '{output_file}'", file=sys.stderr)
+
 if __name__ == "__main__":
     test_cases = generate_test_cases(AGENT_DESCRIPTION)
     save_and_print(test_cases)
