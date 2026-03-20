@@ -9,6 +9,8 @@ import re
 import sys
 from openai import OpenAI
 from dotenv import load_dotenv
+from pydantic import BaseModel, Field
+from typing import List
 
 load_dotenv()
 
@@ -46,6 +48,19 @@ Rules:
 - Do not include any text outside the JSON array.
 """
 
+class ConversationTurn(BaseModel):
+    question: str
+    goal: str
+
+class TestCase(BaseModel):
+    id: int = Field(..., ge=1, le=5)
+    persona: str
+    scenario: str
+    conversation: List[ConversationTurn]
+
+class TestCases(BaseModel):
+    test_cases: List[TestCase]
+
 
 def strip_markdown_fences(text: str) -> str:
     """Remove markdown code fences if the model wraps output in them."""
@@ -59,9 +74,8 @@ def strip_markdown_fences(text: str) -> str:
 def generate_test_cases(agent_description: str) -> list[dict]:
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-    response = client.chat.completions.create(
+    response = client.chat.completions.parse(
         model="gpt-5-nano",
-        temperature=0.7,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {
@@ -69,9 +83,11 @@ def generate_test_cases(agent_description: str) -> list[dict]:
                 "content": f"Generate 5 test cases for the following voice agent:\n\n{agent_description.strip()}",
             },
         ],
+        response_format=TestCases
     )
 
     raw = response.choices[0].message.content
+    #print(raw)
     cleaned = strip_markdown_fences(raw)
 
     try:
@@ -81,7 +97,7 @@ def generate_test_cases(agent_description: str) -> list[dict]:
         print(f"[RAW OUTPUT]\n{cleaned}", file=sys.stderr)
         sys.exit(1)
 
-    if not isinstance(test_cases, list) or len(test_cases) != 5:
+    """if not isinstance(test_cases, list) or len(test_cases) != 5:
         print(
             f"[ERROR] Expected a list of 5 test cases, got: {type(test_cases).__name__} with {len(test_cases) if isinstance(test_cases, list) else 'N/A'} items",
             file=sys.stderr,
@@ -107,7 +123,7 @@ def generate_test_cases(agent_description: str) -> list[dict]:
                     f"[ERROR] Test case {i+1}, turn {j+1} is missing 'question' or 'goal'.",
                     file=sys.stderr,
                 )
-                sys.exit(1)
+                sys.exit(1)"""
 
     return test_cases
 
@@ -119,7 +135,10 @@ def save_and_print(test_cases: list[dict], output_file: str = "test_cases.json")
         f.write(output)
 
     print(output)
-    print(f"\n[OK] Saved {len(test_cases)} test cases to '{output_file}'", file=sys.stderr)
+    num_of_test_cases = 0
+    for test_case in test_cases["test_cases"]:
+        num_of_test_cases += 1
+    print(f"\n[OK] Saved {num_of_test_cases} test cases to '{output_file}'", file=sys.stderr)
 
 
 if __name__ == "__main__":
