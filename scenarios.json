@@ -1,0 +1,35 @@
+[
+  {
+    "scenarioName": "New Patient - Scheduling Initial Consultation",
+    "scenarioDescription": "Emily Smith, a new patient, calls to schedule an initial consultation. She provides all necessary personal information, including her insurance details. She also asks a few questions about the clinic services before the agent transitions to scheduling her first appointment.",
+    "name": "Emily Smith",
+    "dob": "05/15/1995",
+    "phone": "312-555-0187",
+    "email": "emily.smith@example.com",
+    "gender": "Female",
+    "insurance": "Blue Cross Blue Shield",
+    "criteria": "The agent collects Emily's information accurately and answers questions about the clinic before proceeding with the scheduling of her appointment."
+  },
+  {
+    "scenarioName": "Existing Patient - Medical History Discussion",
+    "scenarioDescription": "Michael Johnson, an existing patient, calls to discuss his recent lab results and medical history. He is directed to speak with a specialist regarding his concerns after providing personal verification details. Michael needs assurance that the right information is relayed.",
+    "name": "Michael Johnson",
+    "dob": "11/21/1978",
+    "phone": "415-987-6543",
+    "email": "m.johnson78@example.com",
+    "gender": "Male",
+    "insurance": "UnitedHealthcare",
+    "criteria": "The agent confirms Michael's identity and efficiently transitions the call to HPI_COLLECTION where his medical history is discussed."
+  },
+  {
+    "scenarioName": "Confused Caller - Transition to Human Agent",
+    "scenarioDescription": "Sophie Turner calls the clinic to ask about a bill she received, but she is not clear on the charges. She provides her contact details and expresses difficulty in understanding her insurance coverage. The AI agent assesses that a human agent can better address her billing issues and offers to connect Sophie promptly.",
+    "name": "Sophie Turner",
+    "dob": "03/02/1985",
+    "phone": "646-234-7788",
+    "email": "sophie.turner@example.com",
+    "gender": "Female",
+    "insurance": "Cigna",
+    "criteria": "The agent determines Sophie's inquiry about billing is best handled by a human and smoothly connects her to a human agent after verifying important details."
+  }
+]

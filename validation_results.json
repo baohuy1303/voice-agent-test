@@ -1,0 +1,64 @@
+[
+  {
+    "human_strings": [
+      "Hi, I'm a new patient. My name is Emily Smith.",
+      "Sure, my date of birth is 05/15/1995, my phone number is 312-555-0187, and my email is emily.smith@example.com.",
+      "Yes, I have Blue Cross Blue Shield insurance.",
+      "I would like to schedule an initial consultation, please.",
+      "Wednesday from 2-3 PM would be perfect.",
+      "That sounds great. I was wondering if you could tell me a bit about the services your clinic offers?",
+      "No, that's all for now. Thank you very much for your help!"
+    ],
+    "ai_strings": [
+      "Hello, thank you for calling the clinic. I'm your AI receptionist. Are you a new or returning patient?",
+      "Great! Welcome to our clinic, Emily. May I collect some information to get you started? Could I have your date of birth, phone number, and email address, please?",
+      "Thank you for providing your details, Emily. Do you have any insurance information you\u2019d like to share for your records?",
+      "Excellent. Now, I understand you'd like to schedule your initial consultation. Can you let me know what type of appointment you\u2019re looking to book?",
+      "For a general consultation, we have the following available slots: Tuesday from 4-5 PM, Wednesday from 2-3 PM, and Friday from 9-10 AM. Do any of these times work for you?",
+      "Sure, I've scheduled your appointment for Tuesday from 4-5 PM. Is there anything else you would like to know about our clinic services?",
+      "Our clinic offers a range of health services including primary care, preventative screenings, and specialist referrals. If you have specific services in mind, I can connect you with a human agent for more detailed information.",
+      "You're welcome, Emily. We've scheduled your appointment for Tuesday at 4 PM. If you have any more questions, feel free to reach out. Have a great day!"
+    ],
+    "summary": "Emily Smith, a new patient, called to schedule an initial consultation. She provided her personal information, including date of birth, phone number, email, and insurance details. The AI agent then offered available time slots for the appointment. Emily selected a slot, but the AI confirmed an incorrect day, and answered Emily's question about the clinic services.",
+    "score": 7,
+    "comments": "The AI agent effectively collected Emily's personal and insurance information and provided options for appointment slots, which aligns with part of the success criteria. However, the agent confirmed an incorrect appointment time (Tuesday instead of the requested Wednesday), which could lead to confusion or inconvenience for Emily. Additionally, the AI should have addressed all informational queries before booking the appointment. Despite these errors, the agent did provide general information about the clinic services as per the user's request."
+  },
+  {
+    "human_strings": [
+      "Hi, I'm a returning patient.",
+      "My name is Michael Johnson, and my date of birth is November 21, 1978.",
+      "I wanted to discuss my recent lab results and medical history. I'm concerned about some of the results and want to make sure everything is clarified.",
+      "Yes, I'd like to ensure they look closely at my cholesterol results and explain them.",
+      "Thank you, I appreciate it!"
+    ],
+    "ai_strings": [
+      "Hello, thank you for calling the clinic. I'm your AI receptionist. Are you a new or returning patient?",
+      "Great, can I please have your full name and date of birth to access your records?",
+      "Thank you, Michael. I have your details here. How can I assist you with your recent lab results and medical history today?",
+      "I can help with setting you up to speak to a specialist about your concerns. Before I transfer you, is there any specific information or concern you'd like to ensure is relayed?",
+      "Got it. I will make a note for the specialist to discuss your cholesterol levels in detail. I'll connect you now. Thank you for calling, and have a great day!"
+    ],
+    "summary": "Michael Johnson, a returning patient, contacted the clinic regarding his recent lab results and medical history. After confirming his identity with his full name and date of birth, he expressed concerns specifically about his cholesterol levels. The AI receptionist acknowledged his concerns and assured him that this information would be communicated to the specialist before transferring the call.",
+    "score": 10,
+    "comments": "The AI agent efficiently confirmed Michael's identity by asking for his full name and date of birth, which is a critical step for accessing patient records. The agent clearly understood Michael's core concern regarding his cholesterol levels and assured him that this information would be relayed to the specialist. The interaction was smooth and adhered perfectly to the criteria of transitioning to HPI_COLLECTION afterward. The overall communication was clear and supportive, fulfilling the outlined scenario requirements completely."
+  },
+  {
+    "human_strings": [
+      "Hi, I'm a returning patient. My name's Sophie Turner.",
+      "I received a bill and I'm a bit confused about the charges. Can you help clarify?",
+      "Yes, it's 73456-B.",
+      "Yes, I'm having a hard time understanding what my insurance, Cigna, covers.",
+      "Yes, that would be great. Thank you."
+    ],
+    "ai_strings": [
+      "Hello, thank you for calling the clinic. I'm your AI receptionist. Are you a new or returning patient?",
+      "Thank you, Sophie. How can I assist you today?",
+      "I understand. Could you please provide the invoice or account number on the bill?",
+      "Thank you for that information. I see that there are a few items on this bill that might need clarification. Can you confirm if you are experiencing difficulty with understanding the insurance coverage as well?",
+      "No problem, Sophie. I can transfer you to one of our billing specialists who can provide more detailed explanations about the charges and your insurance coverage. Would you like me to do that for you now?"
+    ],
+    "summary": "Sophie Turner, a returning patient, calls the clinic to inquire about charges on a bill she received. She provides the invoice number and mentions difficulty in understanding her insurance coverage with Cigna. The AI receptionist, unable to provide the needed assistance, offers to transfer her to a billing specialist for a detailed explanation and Sophie agrees.",
+    "score": 10,
+    "comments": "The AI agent successfully identified that Sophie's query about billing and insurance coverage was best handled by a human agent. It smoothly facilitated the transfer by first gathering the necessary billing information, confirming the need for further clarification, and addressing the insurance aspect. The interaction was seamless and aligned perfectly with the scenario criteria, warranting a score of 10."
+  }
+]
